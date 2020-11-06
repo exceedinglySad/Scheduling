@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 开启mybatis的日志功能，可以打印出执行的sql语句 -->
+    <!--<settings>-->
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+    <!--</settings>-->
+
+    <!-- 定义包下的类的别名从全路径修改为类名大写 -->
+    <typeAliases>
+        <package name="com.defs.domain"/>
+        <package name="com.defs.vo" />
+    </typeAliases>
+    <mappers>
+        <mapper class="com.defs.dao.UserDao"/>
+    </mappers>
+
+</configuration>

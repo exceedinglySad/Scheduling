@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.defs.dao.UserDao">
+
+    <!--增加一个User-->
+    <insert id="addUser" parameterType="User">
+        insert into scheduling.user(name,role,checked)
+        values (#{name}, #{role}, #{checked})
+    </insert>
+
+    <!--根据id删除一个User-->
+    <delete id="deleteUserById" parameterType="int">
+        delete from scheduling.user where id=#{id}
+    </delete>
+
+    <!--更新User-->
+    <update id="updateUser" parameterType="User">
+        update scheduling.user
+        set name = #{name},role = #{role},checked = #{checked}
+        where id = #{id}
+    </update>
+
+    <!--根据id查询,返回一个User-->
+    <select id="queryUserById" resultType="User">
+        select * from scheduling.user
+        where id = #{id}
+    </select>
+
+    <!--查询全部User-->
+    <select id="queryAllUsers" resultType="User">
+        SELECT * from scheduling.user
+    </select>
+
+    <!-- 根据名字模糊查询User -->
+    <select id="queryUserByName" resultType="User">
+        SELECT * from scheduling.user WHERE name like "%" #{username} "%"
+    </select>
+
+    <select id="queryPartakeUser" resultType="User">
+        SELECT * FROM scheduling.user WHERE  checked = '1'
+    </select>
+
+</mapper>
