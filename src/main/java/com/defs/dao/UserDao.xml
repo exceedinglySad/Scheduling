@@ -34,6 +34,10 @@
         SELECT * from scheduling.user
     </select>
 
+    <select id="queryLoginUser" resultType="User">
+        SELECT * FROM scheduling.user WHERE name = #{username}
+    </select>
+
     <!-- 根据名字模糊查询User -->
     <select id="queryUserByName" resultType="User">
         SELECT * from scheduling.user WHERE name like "%" #{username} "%"

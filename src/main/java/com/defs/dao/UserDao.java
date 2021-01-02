@@ -1,6 +1,7 @@
 package com.defs.dao;
 
 import com.defs.domain.User;
+import com.defs.dto.LoginUser;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -24,6 +25,9 @@ public interface UserDao {
 
     //查询全部User,返回list集合
     List<User> queryAllUsers();
+
+    //根据登录信息查询用户
+    List<User> queryLoginUser(LoginUser loginUser);
 
     //根据userName模糊查询用户
     List<User> queryUserByName(@Param("username") String username);

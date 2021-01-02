@@ -2,6 +2,7 @@ package com.defs.service;
 
 import com.defs.dao.UserDao;
 import com.defs.domain.User;
+import com.defs.dto.LoginUser;
 import lombok.Setter;
 
 import java.util.List;
@@ -38,6 +39,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryAllUsers() {
         return userDao.queryAllUsers();
+    }
+
+    @Override
+    public List<User> queryLoginUser(LoginUser loginUser) {
+        return userDao.queryLoginUser(loginUser);
     }
 
     @Override
